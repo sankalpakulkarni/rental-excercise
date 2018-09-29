@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import MessageComponent from "./MessageComponent";
+import Gallery from "./components/gallery";
 
 
-const Index = () => {
-    return (<div>Hello React!</div>);
-};
-
-ReactDOM.render(<MessageComponent />, document.getElementById('content'));
+ReactDOM.render(<Gallery />, document.getElementById('content'));

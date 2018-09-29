@@ -1,0 +1,13 @@
+.title{
+  text-align: center;
+  margin: 30px;
+  font-size: 40px;
+
+}
+
+.photos{
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

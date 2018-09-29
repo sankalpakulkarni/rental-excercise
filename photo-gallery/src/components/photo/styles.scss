@@ -1,0 +1,41 @@
+.photo {
+    display: flex;
+    align-items: center;
+    opacity: 1;
+    width: 400px;
+    height: 400px;
+    margin: 2px;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    position:relative;
+    :hover{
+        cursor: pointer;
+    }
+    .image{
+        width: 100%;
+        height: 100%;
+    }
+    .middle {
+        transition: .5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        text-align: center;
+        .text {
+            top: 90%;
+            left: 50%;
+            font-size: 20px;
+            color: white;
+            transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+        }
+    }
+    &:hover .middle{
+        opacity: 1;
+    }
+}
+
+
