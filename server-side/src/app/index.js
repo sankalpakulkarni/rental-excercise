@@ -1,0 +1,19 @@
+import React, { Component, PropTypes } from 'react';
+
+export default class App extends Component {
+  render() {
+    const { isMobile} = this.props;
+  console.log("props" + this.props);
+
+    return (
+      <div>
+        <h1>hello world {isMobile ? 'mobile' : 'desktop'} </h1>
+        <div>{this.props.externalSite}</div>
+      </div>
+    );
+  }
+}
+
+App.propTypes = {
+  isMobile: PropTypes.bool.isRequired
+};
