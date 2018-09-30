@@ -1,5 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './index';
+import AppComponent from './index';
 
-render(<App {...window.__APP_INITIAL_STATE__} />, document.getElementById('root'));
+
+const root = document.getElementById( "root" );
+
+render(<AppComponent {...window.__APP_INITIAL_STATE__}  />, root);

@@ -47,25 +47,29 @@ module.exports =
 
 	'use strict';
 
-	var _express = __webpack_require__(1);
+	var _stringify = __webpack_require__(1);
+
+	var _stringify2 = _interopRequireDefault(_stringify);
+
+	var _express = __webpack_require__(2);
 
 	var _express2 = _interopRequireDefault(_express);
 
-	var _react = __webpack_require__(2);
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _server = __webpack_require__(3);
+	var _server = __webpack_require__(4);
 
-	var _app = __webpack_require__(4);
+	var _app = __webpack_require__(5);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _template = __webpack_require__(5);
+	var _template = __webpack_require__(11);
 
 	var _template2 = _interopRequireDefault(_template);
 
-	var _request = __webpack_require__(6);
+	var _request = __webpack_require__(12);
 
 	var _request2 = _interopRequireDefault(_request);
 
@@ -75,7 +79,7 @@ module.exports =
 
 	server.use('/assets', _express2.default.static('assets'));
 
-	server.get('/goo', function (req, response) {
+	server.get('/getCompoenets', function (req, response) {
 	    var isMobile = false;
 	    var initialState = { isMobile: isMobile };
 	    //MAke api call and pass it as props
@@ -84,14 +88,14 @@ module.exports =
 	        if (err) console.log(err);
 	        initialState = {
 	            isMobile: isMobile,
-	            externalSite: body
+	            externalSite: res.statusCode
 	        };
 	        console.log(res);
 	        var appString = (0, _server.renderToString)(_react2.default.createElement(_app2.default, initialState));
 	        response.send((0, _template2.default)({
 	            body: appString,
 	            title: 'Hello World from the server',
-	            initialState: JSON.stringify(initialState)
+	            initialState: (0, _stringify2.default)(initialState)
 	        }));
 	    });
 	});
@@ -103,91 +107,152 @@ module.exports =
 /* 1 */
 /***/ (function(module, exports) {
 
-	module.exports = require("express");
+	module.exports = require("babel-runtime/core-js/json/stringify");
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-	module.exports = require("react");
+	module.exports = require("express");
 
 /***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
-	module.exports = require("react-dom/server");
+	module.exports = require("react");
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports) {
+
+	module.exports = require("react-dom/server");
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _getPrototypeOf = __webpack_require__(6);
 
-	var _react = __webpack_require__(2);
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(7);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(8);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(9);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(10);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(3);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var AppComponent = function (_Component) {
+	  (0, _inherits3.default)(AppComponent, _Component);
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	  function AppComponent() {
+	    var _ref;
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	    var _temp, _this, _ret;
 
-	var App = function (_Component) {
-	  _inherits(App, _Component);
+	    (0, _classCallCheck3.default)(this, AppComponent);
 
-	  function App() {
-	    _classCallCheck(this, App);
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = AppComponent.__proto__ || (0, _getPrototypeOf2.default)(AppComponent)).call.apply(_ref, [this].concat(args))), _this), _this.handleClick = function handleClick() {
+	      alert("clicked");
+	    }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
 	  }
 
-	  _createClass(App, [{
-	    key: 'render',
+	  (0, _createClass3.default)(AppComponent, [{
+	    key: "render",
 	    value: function render() {
 	      var isMobile = this.props.isMobile;
 
 	      console.log("props" + this.props);
-
 	      return _react2.default.createElement(
-	        'div',
+	        "div",
 	        null,
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'hello world ',
-	          isMobile ? 'mobile' : 'desktop',
-	          ' '
+	          "div",
+	          { onClick: this.handleClick },
+	          " Click Me "
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          "h1",
+	          null,
+	          "hello world ",
+	          isMobile ? 'mobile' : 'desktop',
+	          " "
+	        ),
+	        _react2.default.createElement(
+	          "div",
 	          null,
 	          this.props.externalSite
 	        )
 	      );
 	    }
 	  }]);
-
-	  return App;
+	  return AppComponent;
 	}(_react.Component);
 
-	exports.default = App;
+	exports.default = AppComponent;
 
 
-	App.propTypes = {
+	AppComponent.propTypes = {
 	  isMobile: _react.PropTypes.bool.isRequired
 	};
 
 /***/ }),
-/* 5 */
+/* 6 */
+/***/ (function(module, exports) {
+
+	module.exports = require("babel-runtime/core-js/object/get-prototype-of");
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	module.exports = require("babel-runtime/helpers/classCallCheck");
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	module.exports = require("babel-runtime/helpers/createClass");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+	module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+	module.exports = require("babel-runtime/helpers/inherits");
+
+/***/ }),
+/* 11 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -205,7 +270,7 @@ module.exports =
 	};
 
 /***/ }),
-/* 6 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	module.exports = require("request");

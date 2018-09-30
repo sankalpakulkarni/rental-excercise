@@ -1,7 +1,7 @@
 import express from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import App from './app';
+import AppComponent from './app';
 import template from './template';
 import request from 'request';
 
@@ -9,7 +9,7 @@ const server = express();
 
 server.use('/assets', express.static('assets'));
 
-server.get('/goo', (req, response) => {
+server.get('/getCompoenets', (req, response) => {
   const isMobile = false;
   let initialState = { isMobile };
   //MAke api call and pass it as props
@@ -18,17 +18,16 @@ server.get('/goo', (req, response) => {
       if (err) console.log(err)
       initialState = {
           isMobile,
-          externalSite: body
+          externalSite: res.statusCode
       };
       console.log(res)
-      const appString = renderToString(<App {...initialState} />);
+      const appString = renderToString(<AppComponent {...initialState} />);
       response.send(template({
           body: appString,
           title: 'Hello World from the server',
           initialState: JSON.stringify(initialState)
       }));
   });
-
 
 });
 
